@@ -1,7 +1,7 @@
 import React from 'react';
 import Folder from './Folder'
 import { Route } from 'react-router-dom';
-import Notes from './Notes';
+import Notes from './Note';
 
 
 export default class SideBar extends React.Component{
