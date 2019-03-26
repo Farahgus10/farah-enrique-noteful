@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import { Route } from 'react-router-dom';
 import MainPage from './mainPage';
-import SideBar from './sideBar';
-import MainPageNotes from './mainPageNotes';
+
+
 import './App.css';
 
 export default class App extends Component {
@@ -14,15 +14,13 @@ export default class App extends Component {
     return (
       <div className="App">
         <main>
-          <MainPage>
+          <MainPage notes = {this.state.store.notes} folders = {this.state.store.folders}>
             <Route path='/' component={MainPage} />
           </MainPage>
           
-          <SideBar folders = {this.state.store.folders}>
-            <Route path='/sidebar' component={SideBar} />
-          </SideBar>
 
-          <MainPageNotes notes = {this.state.store.notes}></MainPageNotes>
+
+         
         </main>
       </div>
     );

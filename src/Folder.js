@@ -1,13 +1,13 @@
 import React from 'react';
-import STORE from './store'
+import { Link } from 'react-router-dom';
 
 export default class Folder extends React.Component{
     render(){
-        const folders = this.props.folders
+    
 
         return(
             <div className="folder-side-bar">
-                <p>{this.props.folderName}</p>
+                <p><Link to={`/folder/:${this.props.folderId}`} >{this.props.folderName}</Link></p>
             </div>
         )
     }
