@@ -6,6 +6,17 @@ import React from 'react'
 
 export default function NotePageNav(props) {
   return (
+    <div>
+      <button onClick={() => props.history.goBack()}>
+        Back
+      </button>
+      {props.folder && (
+        <h3 className='NotePageNav__folder-name'>
+          {props.folder.name}
+        </h3>
+      )}
+    </div>
+
     // <div className='NotePageNav'>
     //   <CircleButton
     //     tag='button'
