@@ -1,28 +1,30 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
+import { Route } from 'react-router-dom';
+import MainPage from './mainPage';
+import SideBar from './sideBar';
+import MainPageNotes from './mainPageNotes';
 import './App.css';
 
-class App extends Component {
+export default class App extends Component {
+  state = {
+    store: this.props.store,
+  }
+
   render() {
     return (
       <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
+        <main>
+          <MainPage>
+            <Route path='/' component={MainPage} />
+          </MainPage>
+          
+          <SideBar folders = {this.state.store.folders}>
+            <Route path='/sidebar' component={SideBar} />
+          </SideBar>
+
+          <MainPageNotes notes = {this.state.store.notes}></MainPageNotes>
+        </main>
       </div>
     );
   }
 }
-
-export default App;
